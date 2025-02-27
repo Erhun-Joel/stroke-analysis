@@ -10,9 +10,10 @@ library(shinycssloaders)
 library(shinydashboard)
 
 # Load fitted model
-# Kindly impute the directory of the stroke fit to continue
-# stroke.fit <- read_rds("")
-stroke.fit
+stroke.fit <- readRDS(
+  url("https://github.com/Erhun-Joel/stroke-analysis/raw/refs/heads/main/Data%20and%20objects/rand_fit.rds"),
+  "rb"
+)
 
 # Creating importance tibble for plotting
 importance <-
@@ -21,7 +22,6 @@ tibble(
   value = stroke.fit$fit$fit$fit$variable.importance
 ) %>%
   arrange(-value)
-importance
 
 # Create Gemini querying key
 # Get your Gemini querying key and store here:
@@ -66,9 +66,8 @@ gemini <- function(prompt,
   
 }
 
-# Testing the query out
-gemini("Hello! How was your day?", api.key = google.key) %>%
-  HTML()
+# Get out API Key for Gemini
+google.key = Sys.getenv("GEMINI_API_KEY")
 
 # Creating UI function
 ui <- fluidPage(
