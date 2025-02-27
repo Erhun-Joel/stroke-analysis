@@ -2,7 +2,8 @@
 library(tidyverse)
 
 # Loading data to be used. Replace the empty string in the next line with the location of the file
-#stroke.data <- read.csv("") %>% as_tibble()
+stroke.data <- read.csv("https://raw.githubusercontent.com/Erhun-Joel/stroke-analysis/refs/heads/main/Data%20and%20objects/healthcare-dataset-stroke-data.csv") %>%
+  as_tibble()
 stroke.data
 
 # Creating function to get NA counts and class types by columns

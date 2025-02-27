@@ -8,7 +8,9 @@ library(readr)
 
 # Loading data
 # KIndly place location directory in the command below
-# stroke.data <- read.csv("") %>% filter(gender != "Other")
+stroke.data <- read.csv("https://raw.githubusercontent.com/Erhun-Joel/stroke-analysis/refs/heads/main/Data%20and%20objects/healthcare-dataset-stroke-data.csv") %>%
+  as_tibble() %>%
+  filter(gender != "Other")
 stroke.data
 
 # Making sure stroke variable is a factor and parse bmi variable
